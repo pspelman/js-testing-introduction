@@ -1,3 +1,4 @@
+const {checkAndGenerate} = require("./util");
 const { generateText, createElement, validateInput } = require('./util');
 
 const initApp = () => {
@@ -12,15 +13,12 @@ const addUser = () => {
   const newUserNameInput = document.querySelector('input#name');
   const newUserAgeInput = document.querySelector('input#age');
 
-  if (
-    !validateInput(newUserNameInput.value, true, false) ||
-    !validateInput(newUserAgeInput.value, false, true)
-  ) {
-    return;
-  }
-
   const userList = document.querySelector('.user-list');
-  const outputText = generateText(
+	// const outputText = generateText(
+	//   newUserNameInput.value,
+	//   newUserAgeInput.value
+	// );
+  const outputText = checkAndGenerate(
     newUserNameInput.value,
     newUserAgeInput.value
   );
